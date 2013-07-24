@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MT4基礎（データ型ｓ）"
+title: "MT4基礎（データ型）"
 date: 2013-07-24 08:19
 comments: true
 categories:
