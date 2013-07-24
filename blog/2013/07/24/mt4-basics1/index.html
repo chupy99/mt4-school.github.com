@@ -1,18 +1,101 @@
-<h1>MT4、ざっと知っておくこと</h1>
 
-<blockquote><p> 別に、全部覚えなくて問題ありません。私も全部は覚えていません。
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MT4基礎（コメント） - Metatrader教習所</title>
+	<meta name="author" content="MT4-School">
+
+	
+	<meta name="description" content="別に、全部覚えなくて問題ありません。私も全部は覚えていません。 知りたい時に見てわかれば良いのです。 　 コメントの記述 2種類の書き方があります。 - 単一行にだけ有効なコメント
+- 複数行にまたがっても大丈夫なコメント →すでに知ってる人は読み飛ばしてください! 　
+　 &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Metatrader教習所" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Metatrader教習所</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:mt4-school.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:mt4-school.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">MT4基礎（コメント）</h2>
+	<div class="entry-content"><blockquote><p> 別に、全部覚えなくて問題ありません。私も全部は覚えていません。
  知りたい時に見てわかれば良いのです。</p></blockquote>
 
-<h2>ソース上のコメントの記述</h2>
+<p>　</p>
 
-<p>2種類の書き方があります。
-&ndash; 単一行にだけ有効なコメント
-&ndash; 複数行にまたがっても大丈夫なコメント</p>
+<h2>コメントの記述</h2>
 
-<pre><code>*すでに知ってる人は読み飛ばしてください!* 
+<p>2種類の書き方があります。</p>
+
+<pre><code>- 単一行にだけ有効なコメント
+- 複数行にまたがっても大丈夫なコメント
 </code></pre>
 
-<h3>単一行にだけ有効なコメント</h3>
+<h5>→すでに知ってる人は読み飛ばしてください!</h5>
+
+<p>　
+　</p>
+
+<h2>単一行にだけ有効なコメント</h2>
 
 <p>１行だけコメントしたい場合は <code>スラッシュを2発打つ。</code></p>
 
@@ -24,11 +107,17 @@
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  string price = DoubleToStr(Bid, 5); // Bidを少数第5位の精度フォーマットに変換し、文字列型で取得。
-</span><span class='line'>  print( "現在の価格は" + price); // 現在価格をエキスパートログに出力（表示）</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  // Bidを少数第5位の精度フォーマットに変換し、文字列型で取得。
+</span><span class='line'>  string price = DoubleToStr(Bid, 5);
+</span><span class='line'>
+</span><span class='line'>  print( "現在の価格は" + price); // 現在価格をエキスパートログに書き出す
+</span><span class='line'>  </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>複数行にわたるコメント</h3>
+<h2>複数行にわたるコメント</h2>
 
 <p>複数行にわたるコメントを書きたい場合は <code>「/*」 と「*/」 でコメントした部位を囲む</code>　</p>
 
@@ -49,7 +138,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>わたくし的には、こういうコメントが好き(自分で作った関数に関するコメント例。エンジニア的にはこれかな）</p>
+<p>わたくし的には、こういうコメントが好き(自分で作った関数に関するコメント例。<code>javaエンジニア的にはこれかな</code>）</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -66,68 +155,75 @@
 <span class='line-number'>13</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>/**
 </span><span class='line'> * 自分で作成した独自のMT4関数の説明
-</span><span class='line'> * 
+</span><span class='line'> *
 </span><span class='line'> * @param price 価格
 </span><span class='line'> * @param orderType 保有ポジションの種類（Buy or Sell)
-</span><span class='line'> * 
+</span><span class='line'> *
 </span><span class='line'> * @return 現在の損益
 </span><span class='line'> */
 </span><span class='line'>double getWholeProfitLoss(double price, int orderType) {
 </span><span class='line'>
 </span><span class='line'>　（省略）
 </span><span class='line'>
-</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>　</p>
 
-<p>　</p>
-
-<p>　</p>
-
-<h1>データ型はいくつかありますが、使うものは限られてます</h1>
-
-<p>よく使うもの
-&ndash; int：整数。１とか２とか。よく使う。だいたい-21億から+21億までの整数です。</p>
-
-<pre><code>    `正確には-2147483648から2147483647の整数です。` 
-
-```
-int loop_count = 1;
-```
-</code></pre>
-
-<ul>
-<li><p>bool：ブール型(trueかfalse）。よく使う。
-  <code>Print(trueなbool値); とするとエキスパートログには「１」と表示される。 「true」とは表示されないので注意
-  同様にPrint(falseなbool値); とするとエキスパートログには「１」と表示される。 「true」とは表示されないので注意</code></p>
-
-<p>  <code>
-  bool buy_sign = false;
-  if (buy_sign == false) {
-    Print("まだ買い時じゃない！");
-  }
- </code></p></li>
-<li><p>char：リテラル型。私はここ３年位、使ったことないです。</p></li>
-<li><p>string：文字列型</p>
-
-<p>  <code>
-  string message = "ここで買ったらやばい！踏みとどまれ";
-  Print(message);
- </code></p></li>
-<li><p>double：浮動小数点型。Bidなんかはdouble値なので非常によく使います。</p>
-
-<p>  <code>
-  double spread = Ask - Bid;
-  Comment("spreadは" + doubleToString(spread, 5));  // 実際にはpips変換した方が良いでしょうけどね。サンプルなので適当に。
- </code></p></li>
-<li><p>color：カラー型。EA作るぶんには、それほど使わないかと。インジケータ作るのにはまあまあ使います。</p></li>
-<li><p>datetime：日時型。エキスパートログ等に細かいログを出力したい時なんかに使います。</p></li>
-</ul>
+</div>
 
 
-<p>　</p>
+<div class="meta">
+	<div class="date">
 
-<p>　</p>
 
-<p>　</p>
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-24T08:19:00+09:00" pubdate data-updated="true">Jul 24<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    MT4-School
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Metatrader教習所</title>
+	<title>MT4基礎（データ型ｓ） - Metatrader教習所</title>
 	<meta name="author" content="MT4-School">
 
 	
@@ -12,7 +12,7 @@
 3
 4
 int loop_count = 1;
-while(loop_count &lt; 100) { Print("現時点で" + loop_count + " &hellip;">
+while(loop_count &lt; 100) { Print("現時点で" + loop_count + "回ループしましたー &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -78,18 +78,9 @@ while(loop_count &lt; 100) { Print("現時点で" + loop_count + " &hellip;">
 	
 		
 	
-	<div id="content" class="inner">
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/07/24/mt4-basics2/">
-		
-			MT4基礎（データ型ｓ）</a>
-	</h2>
-	<div class="entry-content">
-		<h1>データ型</h1>
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">MT4基礎（データ型ｓ）</h2>
+	<div class="entry-content"><h1>データ型</h1>
 
 <h2>よく使うもの</h2>
 
@@ -165,10 +156,7 @@ while(loop_count &lt; 100) { Print("現時点で" + loop_count + " &hellip;">
 <li>char：リテラル型。私はここ３年位、使ったことないです。</li>
 </ul>
 
-
-		
-		
-	</div>
+</div>
 
 
 <div class="meta">
@@ -192,139 +180,20 @@ while(loop_count &lt; 100) { Print("現時点で" + loop_count + " &hellip;">
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 		
-		<a href="/blog/2013/07/24/mt4-basics1/">
 		
-			MT4基礎（コメント）</a>
-	</h2>
-	<div class="entry-content">
-		<blockquote><p> 別に、全部覚えなくて問題ありません。私も全部は覚えていません。
- 知りたい時に見てわかれば良いのです。</p></blockquote>
-
-<p>　</p>
-
-<h2>コメントの記述</h2>
-
-<p>2種類の書き方があります。</p>
-
-<pre><code>- 単一行にだけ有効なコメント
-- 複数行にまたがっても大丈夫なコメント
-</code></pre>
-
-<h5>→すでに知ってる人は読み飛ばしてください!</h5>
-
-<p>　
-　</p>
-
-<h2>単一行にだけ有効なコメント</h2>
-
-<p>１行だけコメントしたい場合は <code>スラッシュを2発打つ。</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// ←コメント</span></code></pre></td></tr></table></div></figure>
-
-
-<p>コード（プログラム）の説明を書きたい場合はこんな書き方もOK。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  // Bidを少数第5位の精度フォーマットに変換し、文字列型で取得。
-</span><span class='line'>  string price = DoubleToStr(Bid, 5);
-</span><span class='line'>
-</span><span class='line'>  print( "現在の価格は" + price); // 現在価格をエキスパートログに書き出す
-</span><span class='line'>  </span></code></pre></td></tr></table></div></figure>
-
-
-<h2>複数行にわたるコメント</h2>
-
-<p>複数行にわたるコメントを書きたい場合は <code>「/*」 と「*/」 でコメントした部位を囲む</code>　</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/* ここは複数行に渡るコメント。
-</span><span class='line'>　なぜなら、/* と */ で囲まれた部分だから。
-</span><span class='line'>　わかりやすいコメントを書きましょう。
-</span><span class='line'>*/</span></code></pre></td></tr></table></div></figure>
-
-
-<p>もちろん、 <code>「/*」 と「*/」 で囲う部分が1行だけであっても問題ない</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/* コメント */
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>わたくし的には、こういうコメントが好き(自分で作った関数に関するコメント例。<code>javaエンジニア的にはこれかな</code>）</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/**
-</span><span class='line'> * 自分で作成した独自のMT4関数の説明
-</span><span class='line'> *
-</span><span class='line'> * @param price 価格
-</span><span class='line'> * @param orderType 保有ポジションの種類（Buy or Sell)
-</span><span class='line'> *
-</span><span class='line'> * @return 現在の損益
-</span><span class='line'> */
-</span><span class='line'>double getWholeProfitLoss(double price, int orderType) {
-</span><span class='line'>
-</span><span class='line'>　（省略）
-</span><span class='line'>
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-
-
+		<a class="addthis_button_tweet"></a>
+		
 		
 		
 	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-24T08:19:00+09:00" pubdate data-updated="true">Jul 24<span>th</span>, 2013</time></div>
-	<div class="tags">
-
-</div>
 	
 </div>
-</article>
 
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav></div>
+
+</div>
 	<footer id="footer" class="inner">Copyright &copy; 2013
 
     MT4-School

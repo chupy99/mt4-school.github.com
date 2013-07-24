@@ -1,47 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Metatrader教習所]]></title>
   <link href="http://mt4-school.github.io/atom.xml" rel="self"/>
   <link href="http://mt4-school.github.io/"/>
-  <updated>2013-07-24T22:49:55+09:00</updated>
+  <updated>2013-07-25T01:50:22+09:00</updated>
   <id>http://mt4-school.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[MT4-School]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[test]]></title>
-    <link href="http://mt4-school.github.io/blog/2013/07/24/test/"/>
+    <title type="html"><![CDATA[MT4基礎（データ型ｓ）]]></title>
+    <link href="http://mt4-school.github.io/blog/2013/07/24/mt4-basics2/"/>
     <updated>2013-07-24T08:19:00+09:00</updated>
-    <id>http://mt4-school.github.io/blog/2013/07/24/test</id>
-    <content type="html"><![CDATA[
+    <id>http://mt4-school.github.io/blog/2013/07/24/mt4-basics2</id>
+    <content type="html"><![CDATA[<h1>データ型</h1>
+
+<h2>よく使うもの</h2>
+
+<ul>
+<li>int：整数。１とか２とか。よく使う。だいたい-21億から+21億までの整数です。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int loop_count = 1;
+</span><span class='line'>while(loop_count &lt; 100) {
+</span><span class='line'>    Print("現時点で" + loop_count + "回ループしましたー。");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>bool：ブール型(trueかfalse）。よく使う。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bool buy_sign = false;
+</span><span class='line'>if (buy_sign == false) {
+</span><span class='line'>  Print("まだ買い時じゃない！");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>string：文字列型</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>string message = "ここで買ったらやばい！踏みとどまれ";
+</span><span class='line'>Print(message);</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>double：小数点を含む数値はこの型を使います。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>double spread = Ask - Bid;
+</span><span class='line'>
+</span><span class='line'>// 実際にはpips変換した方が良いでしょうけどね。サンプルなので適当に。
+</span><span class='line'>Comment("spreadは" + doubleToString(spread, 5));</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<h2>あまり使わないもの</h2>
+
+<ul>
+<li>color：カラー型。EA作るぶんには、それほど使わないかと。インジケータ作るのにはまあまあ使います。</li>
+<li>datetime：日時型。エキスパートログ等に細かいログを出力したい時なんかに使います。</li>
+<li>char：リテラル型。私はここ３年位、使ったことないです。</li>
+</ul>
+
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Mt4 Basics1]]></title>
+    <title type="html"><![CDATA[MT4基礎（コメント）]]></title>
     <link href="http://mt4-school.github.io/blog/2013/07/24/mt4-basics1/"/>
-    <updated>2013-07-24T00:00:00+09:00</updated>
+    <updated>2013-07-24T08:19:00+09:00</updated>
     <id>http://mt4-school.github.io/blog/2013/07/24/mt4-basics1</id>
-    <content type="html"><![CDATA[<h1>MT4、ざっと知っておくこと</h1>
-
-<blockquote><p> 別に、全部覚えなくて問題ありません。私も全部は覚えていません。
+    <content type="html"><![CDATA[<blockquote><p> 別に、全部覚えなくて問題ありません。私も全部は覚えていません。
  知りたい時に見てわかれば良いのです。</p></blockquote>
 
-<h2>ソース上のコメントの記述</h2>
+<p>　</p>
 
-<p>2種類の書き方があります。
-&ndash; 単一行にだけ有効なコメント
-&ndash; 複数行にまたがっても大丈夫なコメント</p>
+<h2>コメントの記述</h2>
 
-<pre><code>*すでに知ってる人は読み飛ばしてください!* 
+<p>2種類の書き方があります。</p>
+
+<pre><code>- 単一行にだけ有効なコメント
+- 複数行にまたがっても大丈夫なコメント
 </code></pre>
 
-<h3>単一行にだけ有効なコメント</h3>
+<h5>→すでに知ってる人は読み飛ばしてください!</h5>
+
+<p>　
+　</p>
+
+<h2>単一行にだけ有効なコメント</h2>
 
 <p>１行だけコメントしたい場合は <code>スラッシュを2発打つ。</code></p>
 
@@ -53,11 +132,17 @@
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  string price = DoubleToStr(Bid, 5); // Bidを少数第5位の精度フォーマットに変換し、文字列型で取得。
-</span><span class='line'>  print( "現在の価格は" + price); // 現在価格をエキスパートログに出力（表示）</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  // Bidを少数第5位の精度フォーマットに変換し、文字列型で取得。
+</span><span class='line'>  string price = DoubleToStr(Bid, 5);
+</span><span class='line'>
+</span><span class='line'>  print( "現在の価格は" + price); // 現在価格をエキスパートログに書き出す
+</span><span class='line'>  </span></code></pre></td></tr></table></div></figure>
 
 
-<h3>複数行にわたるコメント</h3>
+<h2>複数行にわたるコメント</h2>
 
 <p>複数行にわたるコメントを書きたい場合は <code>「/*」 と「*/」 でコメントした部位を囲む</code>　</p>
 
@@ -78,7 +163,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>わたくし的には、こういうコメントが好き(自分で作った関数に関するコメント例。エンジニア的にはこれかな）</p>
+<p>わたくし的には、こういうコメントが好き(自分で作った関数に関するコメント例。<code>javaエンジニア的にはこれかな</code>）</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -95,71 +180,20 @@
 <span class='line-number'>13</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>/**
 </span><span class='line'> * 自分で作成した独自のMT4関数の説明
-</span><span class='line'> * 
+</span><span class='line'> *
 </span><span class='line'> * @param price 価格
 </span><span class='line'> * @param orderType 保有ポジションの種類（Buy or Sell)
-</span><span class='line'> * 
+</span><span class='line'> *
 </span><span class='line'> * @return 現在の損益
 </span><span class='line'> */
 </span><span class='line'>double getWholeProfitLoss(double price, int orderType) {
 </span><span class='line'>
 </span><span class='line'>　（省略）
 </span><span class='line'>
-</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>　</p>
 
-<p>　</p>
-
-<p>　</p>
-
-<h1>データ型はいくつかありますが、使うものは限られてます</h1>
-
-<p>よく使うもの
-&ndash; int：整数。１とか２とか。よく使う。だいたい-21億から+21億までの整数です。</p>
-
-<pre><code>    `正確には-2147483648から2147483647の整数です。` 
-
-```
-int loop_count = 1;
-```
-</code></pre>
-
-<ul>
-<li><p>bool：ブール型(trueかfalse）。よく使う。
-  <code>Print(trueなbool値); とするとエキスパートログには「１」と表示される。 「true」とは表示されないので注意
-  同様にPrint(falseなbool値); とするとエキスパートログには「１」と表示される。 「true」とは表示されないので注意</code></p>
-
-<p>  <code>
-  bool buy_sign = false;
-  if (buy_sign == false) {
-    Print("まだ買い時じゃない！");
-  }
- </code></p></li>
-<li><p>char：リテラル型。私はここ３年位、使ったことないです。</p></li>
-<li><p>string：文字列型</p>
-
-<p>  <code>
-  string message = "ここで買ったらやばい！踏みとどまれ";
-  Print(message);
- </code></p></li>
-<li><p>double：浮動小数点型。Bidなんかはdouble値なので非常によく使います。</p>
-
-<p>  <code>
-  double spread = Ask - Bid;
-  Comment("spreadは" + doubleToString(spread, 5));  // 実際にはpips変換した方が良いでしょうけどね。サンプルなので適当に。
- </code></p></li>
-<li><p>color：カラー型。EA作るぶんには、それほど使わないかと。インジケータ作るのにはまあまあ使います。</p></li>
-<li><p>datetime：日時型。エキスパートログ等に細かいログを出力したい時なんかに使います。</p></li>
-</ul>
-
-
-<p>　</p>
-
-<p>　</p>
-
-<p>　</p>
 ]]></content>
   </entry>
   
