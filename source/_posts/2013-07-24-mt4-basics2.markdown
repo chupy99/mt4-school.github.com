@@ -1,0 +1,63 @@
+---
+layout: post
+title: "MT4基礎（データ型ｓ）"
+date: 2013-07-24 08:19
+comments: true
+categories:
+---
+
+# データ型
+
+
+## よく使うもの
+
+- int：整数。１とか２とか。よく使う。だいたい-21億から+21億までの整数です。  
+
+```
+int loop_count = 1;
+while(loop_count < 100) {
+    Print("現時点で" + loop_count + "回ループしましたー。");
+}
+```
+
+　
+
+- bool：ブール型(trueかfalse）。よく使う。
+
+```
+bool buy_sign = false;
+if (buy_sign == false) {
+  Print("まだ買い時じゃない！");
+}
+```
+
+　
+
+- string：文字列型
+
+```
+string message = "ここで買ったらやばい！踏みとどまれ";
+Print(message);
+```
+
+　
+
+- double：小数点を含む数値はこの型を使います。
+
+```
+double spread = Ask - Bid;
+
+// 実際にはpips変換した方が良いでしょうけどね。サンプルなので適当に。
+Comment("spreadは" + doubleToString(spread, 5));
+```
+
+　
+
+## あまり使わないもの
+
+
+- color：カラー型。EA作るぶんには、それほど使わないかと。インジケータ作るのにはまあまあ使います。
+- datetime：日時型。エキスパートログ等に細かいログを出力したい時なんかに使います。
+- char：リテラル型。私はここ３年位、使ったことないです。
+
+
