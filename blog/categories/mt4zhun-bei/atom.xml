@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Metatrader教習所]]></title>
-  <link href="http://mt4-school.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: MT4準備 | Metatrader教習所]]></title>
+  <link href="http://mt4-school.github.io/blog/categories/mt4zhun-bei/atom.xml" rel="self"/>
   <link href="http://mt4-school.github.io/"/>
   <updated>2013-07-27T00:19:57+09:00</updated>
   <id>http://mt4-school.github.io/</id>
@@ -96,53 +96,42 @@ MetaEditorは、EAやインジケータ等の元となるソースコード（�
 
 <ol>
 <li>ソース（プログラムコード）を編集します。<br/>
-<img src="images/MT4%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%8B%E3%82%89EA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7%E3%81%AE%E6%B5%81%E3%82%8C/Screen%20Shot%200025-07-26%20at%209.43.18%20PM.png" alt="" /></li>
+<img src="images/MT4%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%8B%E3%82%89EA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7%E3%81%AE%E6%B5%81%E3%82%8C/Screen%20Shot%200025-07-26%20at%209.43.18%20PM.png" alt="" />
+```
+//+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+
+//|                                                       test_1.mq4 |
+//|                        Copyright 2013, MetaQuotes Software Corp. |
+//|                                        <a href="http://www.metaquotes.net">http://www.metaquotes.net</a> |
+//+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+
+
+<h1>property copyright &ldquo;Copyright 2013, MetaQuotes Software Corp.&rdquo;</h1>
+
+<h1>property link      &ldquo;<a href="http://www.metaquotes.net">http://www.metaquotes.net</a>&rdquo;</h1></li>
 </ol>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>//+------------------------------------------------------------------+
-</span><span class='line'>//|                                                       test_1.mq4 |
-</span><span class='line'>//|                        Copyright 2013, MetaQuotes Software Corp. |
-</span><span class='line'>//|                                        http://www.metaquotes.net |
-</span><span class='line'>//+------------------------------------------------------------------+
-</span><span class='line'>#property copyright "Copyright 2013, MetaQuotes Software Corp."
-</span><span class='line'>#property link      "http://www.metaquotes.net"
-</span><span class='line'>
-</span><span class='line'>int init() {
-</span><span class='line'>    return(0);
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>int deinit() {
-</span><span class='line'>    return(0);
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>int start() 
-</span><span class='line'>    Comment(Bid);
-</span><span class='line'>    return(0);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<p>int init() {</p>
 
+<pre><code>return(0);
+</code></pre>
 
-<p>
+<p>}</p>
+
+<p>int deinit() {</p>
+
+<pre><code>return(0);
+</code></pre>
+
+<p>}</p>
+
+<p>int start()</p>
+
+<pre><code>Comment(Bid);
+return(0);
+</code></pre>
+
+<p>}
+```<br/>
 　</p>
 
 <p>2. コンパイルボタン <img src="images/MT4%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%8B%E3%82%89EA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7%E3%81%AE%E6%B5%81%E3%82%8C/Screen%20Shot%200025-07-26%20at%2010.45.55%20PM.png" alt="コンパイルボタン" /> をクリックし、コンパイルします。コンパイルとは、人が読めるソースコードを、PCが理解できるマシン語に変換する処理だと思って下さい。<br/>
@@ -186,190 +175,6 @@ MetaEditorは、EAやインジケータ等の元となるソースコード（�
 <img src="images/MT4%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%8B%E3%82%89EA%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%81%BE%E3%81%A7%E3%81%AE%E6%B5%81%E3%82%8C/Screen%20Shot%200025-07-27%20at%2012.06.24%20AM.png" alt="" /></p>
 
 <p>以上です。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MT4基礎（データ型）]]></title>
-    <link href="http://mt4-school.github.io/blog/2013/07/24/mt4-basics2/"/>
-    <updated>2013-07-24T08:19:00+09:00</updated>
-    <id>http://mt4-school.github.io/blog/2013/07/24/mt4-basics2</id>
-    <content type="html"><![CDATA[<h1>データ型</h1>
-
-<h2>よく使うもの</h2>
-
-<ul>
-<li>int：整数。１とか２とか。よく使う。だいたい-21億から+21億までの整数です。</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>int loop_count = 1;
-</span><span class='line'>while(loop_count &lt; 100) {
-</span><span class='line'>    Print("現時点で" + loop_count + "回ループしましたー。");
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>　</p>
-
-<ul>
-<li>bool：ブール型(trueかfalse）。よく使う。</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bool buy_sign = false;
-</span><span class='line'>if (buy_sign == false) {
-</span><span class='line'>  Print("まだ買い時じゃない！");
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>　</p>
-
-<ul>
-<li>string：文字列型</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>string message = "ここで買ったらやばい！踏みとどまれ";
-</span><span class='line'>Print(message);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>　</p>
-
-<ul>
-<li>double：小数点を含む数値はこの型を使います。</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>double spread = Ask - Bid;
-</span><span class='line'>
-</span><span class='line'>// 実際にはpips変換した方が良いでしょうけどね。サンプルなので適当に。
-</span><span class='line'>Comment("spreadは" + doubleToString(spread, 5));</span></code></pre></td></tr></table></div></figure>
-
-
-<p>　</p>
-
-<h2>あまり使わないもの</h2>
-
-<ul>
-<li>color：カラー型。EA作るぶんには、それほど使わないかと。インジケータ作るのにはまあまあ使います。</li>
-<li>datetime：日時型。エキスパートログ等に細かいログを出力したい時なんかに使います。</li>
-<li>char：リテラル型。私はここ３年位、使ったことないです。</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[MT4基礎（コメント）]]></title>
-    <link href="http://mt4-school.github.io/blog/2013/07/24/mt4-basics1/"/>
-    <updated>2013-07-24T08:19:00+09:00</updated>
-    <id>http://mt4-school.github.io/blog/2013/07/24/mt4-basics1</id>
-    <content type="html"><![CDATA[<blockquote><p> 別に、全部覚えなくて問題ありません。私も全部は覚えていません。
- 知りたい時に見てわかれば良いのです。</p></blockquote>
-
-<p>　</p>
-
-<h2>コメントの記述</h2>
-
-<p>2種類の書き方があります。</p>
-
-<pre><code>- 単一行にだけ有効なコメント
-- 複数行にまたがっても大丈夫なコメント
-</code></pre>
-
-<h5>→すでに知ってる人は読み飛ばしてください!</h5>
-
-<p>　
-　</p>
-
-<h2>単一行にだけ有効なコメント</h2>
-
-<p>１行だけコメントしたい場合は <code>スラッシュを2発打つ。</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// ←コメント</span></code></pre></td></tr></table></div></figure>
-
-
-<p>コード（プログラム）の説明を書きたい場合はこんな書き方もOK。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  // Bidを少数第5位の精度フォーマットに変換し、文字列型で取得。
-</span><span class='line'>  string price = DoubleToStr(Bid, 5);
-</span><span class='line'>
-</span><span class='line'>  print( "現在の価格は" + price); // 現在価格をエキスパートログに書き出す
-</span><span class='line'>  </span></code></pre></td></tr></table></div></figure>
-
-
-<h2>複数行にわたるコメント</h2>
-
-<p>複数行にわたるコメントを書きたい場合は <code>「/*」 と「*/」 でコメントした部位を囲む</code>　</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/* ここは複数行に渡るコメント。
-</span><span class='line'>　なぜなら、/* と */ で囲まれた部分だから。
-</span><span class='line'>　わかりやすいコメントを書きましょう。
-</span><span class='line'>*/</span></code></pre></td></tr></table></div></figure>
-
-
-<p>もちろん、 <code>「/*」 と「*/」 で囲う部分が1行だけであっても問題ない</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/* コメント */
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>わたくし的には、こういうコメントが好き(自分で作った関数に関するコメント例。<code>javaエンジニア的にはこれかな</code>）</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/**
-</span><span class='line'> * 自分で作成した独自のMT4関数の説明
-</span><span class='line'> *
-</span><span class='line'> * @param price 価格
-</span><span class='line'> * @param orderType 保有ポジションの種類（Buy or Sell)
-</span><span class='line'> *
-</span><span class='line'> * @return 現在の損益
-</span><span class='line'> */
-</span><span class='line'>double getWholeProfitLoss(double price, int orderType) {
-</span><span class='line'>
-</span><span class='line'>　（省略）
-</span><span class='line'>
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-
 ]]></content>
   </entry>
   
