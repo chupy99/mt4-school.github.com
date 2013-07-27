@@ -6,7 +6,7 @@ comments: true
 categories: MT4準備
 ---
 
-Metatrader4をインストールしてから、EAを作成するまでの流れをご説明したいと思います。
+えー、それではMetatrader4をインストールしてから、EAを作成するまでの流れをご説明したいと思います。
 
 # MT4インストール
 
@@ -17,7 +17,7 @@ Metatrader4をインストールしてから、EAを作成するまでの流れ�
 # MT4初期設定
 
 1. MT4プラットフォームを提供するFXブローカーの口座（アカウント）を持っていなければ、デモアカウントを作成する。  
-![デモアカウント作成画面](images/2013-07-26/Screen Shot 0025-07-26 at 8.33.39 PM.png)    
+![デモアカウント作成画面](/images/2013-07-26/Screen Shot 0025-07-26 at 8.33.39 PM.png)    
 1. MT4が起動したら	、Tools> Options> ExpertAdvisorsタブを画像のように設定する。後でやっても良いが、この際忘れないように先にやっておく。
     + Enable Expert Advisors(expect for Custom Indicators and Scrips) に✔
     + Allow live trading に✔
@@ -25,48 +25,48 @@ Metatrader4をインストールしてから、EAを作成するまでの流れ�
     + Allow external experts imports に✔
       + 上記4つ以外はすべて✔ をはずす。できたらOKボタンを押す。  
 
-![tool>options>ExpertAdvisors画面](images/2013-07-26/Screen Shot 0025-07-26 at 8.09.26 PM.png)
+![tool>options>ExpertAdvisors画面](/images/2013-07-26/Screen Shot 0025-07-26 at 8.09.26 PM.png)
 
 # MetaEditorの設定
 
-1. MetaEditorの起動アイコン ![MetaEditor起動アイコン](images/2013-07-26/Screen Shot 0025-07-26 at 9.25.06 PM.png)をクリックしてください。
+1. MetaEditorの起動アイコン ![MetaEditor起動アイコン](/images/2013-07-26/Screen Shot 0025-07-26 at 9.25.06 PM.png)をクリックしてください。
   MetaEditorは、EAやインジケータ等の元となるソースコード（プログラムコード）を書いたり、直したりするためのアプリケーションです。  
-![MT4上でMetaEditorアイコンをクリック](images/2013-07-26/Screen Shot 0025-07-26 at 8.12.03 PM.png)
+![MT4上でMetaEditorアイコンをクリック](/images/2013-07-26/Screen Shot 0025-07-26 at 8.12.03 PM.png)
 
 1. MT4をインストールした直後のMetaEditorは、少し使いづらいです。使いづらい理由は以下の通りです。
     + タブが一般的な4桁ではなく、3桁設定となっている。
     + 日本語が入力できない（日本語を入力すると文字が化け、読めない）  
 
     というわけで少し手を加えて使いやすくします。Tools＞Options... を選択してください。  
-![MetaEditor上でオプションを開く](images/2013-07-26/Screen Shot 0025-07-26 at 8.13.16 PM.png)
+![MetaEditor上でオプションを開く](/images/2013-07-26/Screen Shot 0025-07-26 at 8.13.16 PM.png)
   
 1. Generalタブにて。Tab size欄に「4」を設定します。  
-![Tools>optionsでタブの桁数を設定](images/2013-07-26/Screen Shot 0025-07-26 at 8.14.17 PM.png)  
+![Tools>optionsでタブの桁数を設定](/images/2013-07-26/Screen Shot 0025-07-26 at 8.14.17 PM.png)  
 
 1. Fontタブにて。FontをMS Gothic(MS ゴシック)、Scriptを「Japanese（日本語）」を設定します。  
-![日本語対応のフォントを選択](images/2013-07-26/Screen Shot 0025-07-26 at 8.15.11 PM.png)  
+![日本語対応のフォントを選択](/images/2013-07-26/Screen Shot 0025-07-26 at 8.15.11 PM.png)  
 
 最後にOKボタンを押して、これで設定は完了です。
 
 
 # ExpartAdvisorを作る
 
-1. Newアイコン ![](images/2013-07-26/Screen Shot 0025-07-27 at 12.15.05 AM.png) をクリックしてEA作成を開始する。  
-![MetaEditorまっさら画面](images/2013-07-26/Screen Shot 0025-07-26 at 9.33.19 PM.png)
+1. Newアイコン ![](/images/2013-07-26/Screen Shot 0025-07-27 at 12.15.05 AM.png) をクリックしてEA作成を開始する。  
+![MetaEditorまっさら画面](/images/2013-07-26/Screen Shot 0025-07-26 at 9.33.19 PM.png)
 
 1. ExpertAdvisorを選択し、Nextをクリック  
-![ExpertAdvisorWizard](images/2013-07-26/Screen Shot 0025-07-26 at 9.33.31 PM.png)
+![ExpertAdvisorWizard](/images/2013-07-26/Screen Shot 0025-07-26 at 9.33.31 PM.png)
 
 1. 名前(Name欄）等を入力し、Finishをクリック  
-![EA情報の入力](images/2013-07-26/Screen Shot 0025-07-26 at 9.33.44 PM.png)
+![EA情報の入力](/images/2013-07-26/Screen Shot 0025-07-26 at 9.33.44 PM.png)
 
 1. EAが編集できる状態になります。  
-![編集画面が表示される](images/2013-07-26/Screen Shot 0025-07-26 at 9.33.55 PM.png)
+![編集画面が表示される](/images/2013-07-26/Screen Shot 0025-07-26 at 9.33.55 PM.png)
 
 # ソースコードの編集＆コンパイル
 
 1. ソース（プログラムコード）を編集します。  
-![](images/2013-07-26/Screen Shot 0025-07-26 at 9.43.18 PM.png)
+![](/images/2013-07-26/Screen Shot 0025-07-26 at 9.43.18 PM.png)
 ```
 //+------------------------------------------------------------------+
 //|                                                       test_1.mq4 |
@@ -91,42 +91,45 @@ int start()
 ```  
 　
 
-2\. コンパイルボタン ![コンパイルボタン](images/2013-07-26/Screen Shot 0025-07-26 at 10.45.55 PM.png) をクリックし、コンパイルします。コンパイルとは、人が読めるソースコードを、PCが理解できるマシン語に変換する処理だと思って下さい。  
-![コンパイル](images/2013-07-26/Screen Shot 0025-07-26 at 9.44.48 PM.png)
+2\. コンパイルボタン ![コンパイルボタン](/images/2013-07-26/Screen Shot 0025-07-26 at 10.45.55 PM.png) をクリックし、コンパイルします。コンパイルとは、人が読めるソースコードを、PCが理解できるマシン語に変換する処理だと思って下さい。  
+![コンパイル](/images/2013-07-26/Screen Shot 0025-07-26 at 9.44.48 PM.png)
   
 コンパイルに成功すると、こんな表示が出ます。  
-![](images/2013-07-26/Screen Shot 0025-07-26 at 9.45.27 PM.png)
+![](/images/2013-07-26/Screen Shot 0025-07-26 at 9.45.27 PM.png)
   
 コンパイルに失敗すると、こんな表示が出ます。  
-![](images/2013-07-26/Screen Shot 0025-07-26 at 9.46.35 PM.png)
+![](/images/2013-07-26/Screen Shot 0025-07-26 at 9.46.35 PM.png)
 　
 
-3\. コンパイルに成功したら、 ![Terminalボタン](images/2013-07-26/Screen Shot 0025-07-26 at 10.51.46 PM.png)をクリックして、MT4の画面に戻って下さい。  
-__(Terminalアイコン)![Terminalボタン](images/2013-07-26/Screen Shot 0025-07-26 at 10.51.46 PM.png)をクリックして、MT4の画面に戻って下さい。__  大事なことなので２回書きました。  
+3\. コンパイルに成功したら、 ![Terminalボタン](/images/2013-07-26/Screen Shot 0025-07-26 at 10.51.46 PM.png)をクリックして、MT4の画面に戻って下さい。  
+__(Terminalアイコン)![Terminalボタン](/images/2013-07-26/Screen Shot 0025-07-26 at 10.51.46 PM.png)をクリックして、MT4の画面に戻って下さい。__  大事なことなので２回書きました。  
 
 　
 
 4\. するとMT4の画面に戻るのですが、 _Terminalアイコンをクリックするという前述の手順_ でMT4画面に戻ると、NavigatorのExpertAdvisor部に、`test_1`というEAが出来上がったのがわかると思います。  
 この状態で、 `test_1`をチャートにドラッグ＆ドロップしてください。  
-![test_1.ex4がここに](images/2013-07-26/Screen Shot 0025-07-26 at 10.57.41 PM.png)  
+![test_1.ex4がここに](/images/2013-07-26/Screen Shot 0025-07-26 at 10.57.41 PM.png)  
 
 5\. `test_1`のEAを起動するダイアログが表示されます。ここの✔も、下記の画像に合わせて設定してください。そしてOKボタンを押して下さい。  
-![](images/2013-07-26/Screen Shot 0025-07-26 at 11.38.43 PM.png)
+![](/images/2013-07-26/Screen Shot 0025-07-26 at 11.38.43 PM.png)
 
-6\. すると（MT4がEAの実行を許可されていない場合）、こんな表示になります。  
-![EA起動するも、バツ表示](images/2013-07-26/Screen Shot 0025-07-27 at 10.35.09 PM.png)
+6\. すると（MT4がEAの実行を許可されていない場合）、こんな表示になります。
+  - チャートの左上にComment関数の結果が表示されるはずだが、表示されない。
   
-この場合は、EAの実行を許可するボタン ![](images/2013-07-26/Screen Shot 0025-07-26 at 11.39.40 PM.png)　をクリックして下さい。これをクリックすると、ボタンの見た目が ![](images/2013-07-26/Screen Shot 0025-07-26 at 11.55.25 PM.png) のようになります。
+  -  チャートの右上には、EA稼働中を示すニコチャンマークが表示されるはずだが、✗マークが表示されている。
+![EA起動するも、バツ表示](/images/2013-07-26/Screen Shot 0025-07-27 at 10.35.09 PM.png)
+  
+この場合は、EAの実行を許可するボタン ![](/images/2013-07-26/Screen Shot 0025-07-26 at 11.39.40 PM.png)　をクリックして下さい。これをクリックすると、ボタンの見た目が ![](/images/2013-07-26/Screen Shot 0025-07-26 at 11.55.25 PM.png) のようになります。
 
 7\. 正しくEAが動くと、下記のような画面になります。  
 
   - `ExpartAdvisorが許可`されており、チャート右上にニコチャンマークが表示されている。
   - `Comment` という関数が、チャート左上にちょっとしたコメント（ここではBid値）を表示。
 
-![](images/2013-07-26/Screen Shot 0025-07-27 at 12.03.23 AM.png)
+![](/images/2013-07-26/Screen Shot 0025-07-27 at 12.03.23 AM.png)
 
 8\. ひと通り満足した場合、下記のようにすることで、チャート上から `test_1` を取り除くことができます。  
-![](images/2013-07-26/Screen Shot 0025-07-27 at 12.06.24 AM.png)
+![](/images/2013-07-26/Screen Shot 0025-07-27 at 12.06.24 AM.png)
 
 
 以上です。
