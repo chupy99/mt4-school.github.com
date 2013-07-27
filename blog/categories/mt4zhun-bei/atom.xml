@@ -4,7 +4,7 @@
   <title><![CDATA[Category: MT4準備 | Metatrader教習所]]></title>
   <link href="http://mt4-school.github.io/blog/categories/mt4zhun-bei/atom.xml" rel="self"/>
   <link href="http://mt4-school.github.io/"/>
-  <updated>2013-07-27T00:37:10+09:00</updated>
+  <updated>2013-07-27T22:38:42+09:00</updated>
   <id>http://mt4-school.github.io/</id>
   <author>
     <name><![CDATA[MT4-School]]></name>
@@ -157,7 +157,7 @@ return(0);
 <img src="images/2013-07-26/Screen%20Shot%200025-07-26%20at%2011.38.43%20PM.png" alt="" /></p>
 
 <p>6. すると（MT4がEAの実行を許可されていない場合）、こんな表示になります。<br/>
-<img src="images/2013-07-26/Screen%20Shot%200025-07-26%20at%2011.56.22%20PM.png" alt="EA起動するも、バツ表示" /></p>
+<img src="images/2013-07-26/Screen%20Shot%200025-07-27%20at%2010.35.09%20PM.png" alt="EA起動するも、バツ表示" /></p>
 
 <p>この場合は、EAの実行を許可するボタン <img src="images/2013-07-26/Screen%20Shot%200025-07-26%20at%2011.39.40%20PM.png" alt="" />　をクリックして下さい。これをクリックすると、ボタンの見た目が <img src="images/2013-07-26/Screen%20Shot%200025-07-26%20at%2011.55.25%20PM.png" alt="" /> のようになります。</p>
 
