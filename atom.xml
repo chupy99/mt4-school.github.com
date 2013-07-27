@@ -4,7 +4,7 @@
   <title><![CDATA[Metatrader教習所]]></title>
   <link href="http://mt4-school.github.io/atom.xml" rel="self"/>
   <link href="http://mt4-school.github.io/"/>
-  <updated>2013-07-27T22:51:49+09:00</updated>
+  <updated>2013-07-27T22:52:34+09:00</updated>
   <id>http://mt4-school.github.io/</id>
   <author>
     <name><![CDATA[MT4-School]]></name>
@@ -18,7 +18,7 @@
     <link href="http://mt4-school.github.io/blog/2013/07/26/"/>
     <updated>2013-07-26T19:53:00+09:00</updated>
     <id>http://mt4-school.github.io/blog/2013/07/</id>
-    <content type="html"><![CDATA[<p>Metatrader4をインストールしてから、EAを作成するまでの流れをご説明したいと思います。</p>
+    <content type="html"><![CDATA[<p>えー、それではMetatrader4をインストールしてから、EAを作成するまでの流れをご説明したいと思います。</p>
 
 <h1>MT4インストール</h1>
 
