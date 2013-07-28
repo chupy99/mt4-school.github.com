@@ -1,0 +1,362 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MT4におけるif分岐処理 - Metatrader教習所</title>
+	<meta name="author" content="MT4-School">
+
+	
+	<meta name="description" content="分岐処理(if, else) EAをうまくプログラムするには、条件分岐というものが必ず必要となるでしょう。
+例えば、以下のような条件分岐が考えられます。 例：USDJPYにおいて、Askが100円を超えたら、買いポジションを持つ。
+例：持ったポジションの総ロットサイズが10万通貨を超えたら、 &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Metatrader教習所" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Metatrader教習所</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:mt4-school.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:mt4-school.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">MT4におけるif分岐処理</h2>
+	<div class="entry-content"><h1>分岐処理(if, else)</h1>
+
+<p>EAをうまくプログラムするには、条件分岐というものが必ず必要となるでしょう。
+例えば、以下のような条件分岐が考えられます。</p>
+
+<ul>
+<li>例：USDJPYにおいて、Askが100円を超えたら、買いポジションを持つ。</li>
+<li>例：持ったポジションの総ロットサイズが10万通貨を超えたら、新規ポジションは持たない。</li>
+<li>例：５分間の高値と安値の差が30pips以上開いていたら、両建てでポジションを持つ。</li>
+</ul>
+
+
+<p>  <strong>⇒if文というものを使うと条件分岐を実現することができます。</strong></p>
+
+<p>　</p>
+
+<h3>if文の書き方の例を何種類か</h3>
+
+<p>例えば、現在のチャートの通貨ペアがUSDJPYであった場合のif文の書き方の例を次に示します。
+なお、例中で出現する「Symbol()」は、チャートの通貨ペアを返す（教えてくれる）Metatrader4の標準関数です。
+（標準関数＝Metatrader4自体が提供してくれる、便利な関数のこと。標準関数以外の機能が必要になったら、自分で作らなければなりません。）</p>
+
+<ul>
+<li>簡単な条件分岐（XXの場合）<br/>
+ifを使うと、「XXな場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>簡単な条件分岐（XXではないの場合）<br/>
+if文の評価式(カッコ内に書く式)で、!=を使うと、「XXではない場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() != "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYではない場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYではありません。");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>簡単な条件分岐（XX以外の場合）<br/>
+elseを使うと、「XX以外の場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else {
+</span><span class='line'>  // そうではない場合
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYではありません。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>複数の条件分岐 その1<br/>
+else ifを使うと、「XXではないけど、YYだった場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else if ( Symbol() == "EURJPY"){
+</span><span class='line'>  // このチャートの通貨ペアがEURJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはEURJPYです。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>複数の条件分岐 その2<br/>
+else ifの後にも、elseを追加することができます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else if ( Symbol() == "EURJPY"){
+</span><span class='line'>  // このチャートの通貨ペアがEURJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはEURJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else {
+</span><span class='line'>  // そうではない場合
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYでもEURJPYでもありません。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>and(かつ)とor(または）を使った条件分岐 その1 <br/>
+&amp;&amp;を使うと、「XXかつYYだった場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" && Bid &lt; 76.00) {
+</span><span class='line'>  //  チャートの通貨ペアがUSDJPY かつ Bidが76円未満だった場合、コメント表示する
+</span><span class='line'>  Comment("すごく円高です！");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>and(かつ)とor(または）を使った条件分岐 その2<br/>
+||を使うと、「XXか、またはYYだった場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" || Symbol() == "EURJPY") {
+</span><span class='line'>  //  チャートの通貨ペアがUSDJPYか、またはEURJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("現在の通貨ペアは、USDJPYか、またはEURJPYです。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>条件分岐の中の条件分岐<br/>
+if文のブロックの中でも、if文を使うことができます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//  チャートの通貨ペアがUSDJPYだった場合
+</span><span class='line'>if ( Symbol() == "USDJPY") {  
+</span><span class='line'>  if ( Bid &lt; 76.00) {
+</span><span class='line'>    //  Bidが76円未満だった場合、コメント表示する
+</span><span class='line'>    Comment("すごく円高です！");
+</span><span class='line'>  
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<blockquote><p><strong>所長の一言</strong></p>
+
+<p>たくさんのif文を書き連ねてコードを書くと、プロっぽくてかっこ良く思える人もいるかもしれませんが、
+業界の人はなるべくif文をたくさん使わない(if文の中にif文を書かない)よう、工夫してコードを書く人が多いです。</p>
+
+<p>コードの品質を高めるための検査指標として、プログラムの「複雑度」というものがあります。
+if文を増やすと、「複雑度」が高まり、知らず知らずのうちにプログラムミスが増えるのがその理由です。</p>
+
+<p>複雑な売買ロジックであったとしても、なるべく複雑度が低く、可読性が高い（コードをひと目見て、簡単に理解できる）状態になることが望ましいです。</p></blockquote>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-27T23:13:00+09:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    MT4-School
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>

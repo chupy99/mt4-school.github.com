@@ -4,7 +4,7 @@
   <title><![CDATA[Metatrader教習所]]></title>
   <link href="http://mt4-school.github.io/atom.xml" rel="self"/>
   <link href="http://mt4-school.github.io/"/>
-  <updated>2013-07-27T22:52:34+09:00</updated>
+  <updated>2013-07-29T00:07:07+09:00</updated>
   <id>http://mt4-school.github.io/</id>
   <author>
     <name><![CDATA[MT4-School]]></name>
@@ -12,6 +12,283 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[所長によるプログラムサポートサービス]]></title>
+    <link href="http://mt4-school.github.io/blog/2013/07/28/mt4-source-review/"/>
+    <updated>2013-07-28T21:38:00+09:00</updated>
+    <id>http://mt4-school.github.io/blog/2013/07/28/mt4-source-review</id>
+    <content type="html"><![CDATA[<p>Metatrader4のEAやインジケータを作成していて、行き詰まってしまうことがよくあると思います。
+そんな時は所長によるサポートサービスを御利用下さい。</p>
+
+<h3>所長サポートの例</h3>
+
+<blockquote><ul>
+<li>MT4でEAを作りたいが、どこから手をつけたら良いかわからない。</li>
+<li>MT4でEAを作ったけど、なぜかうまく動かない。</li>
+<li>MT4とFXCMのMarketScopeを繋いで、2社間のデータのやり取りをしたいが、どうやったら良いかわからない。
+
+<ul>
+<li>などなど</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+<p>  　</p>
+
+<h3>所長サポートの金額</h3>
+
+<p>どこまで流行るかわからないので、とりあえず <code>3500円/1問題解決</code> でやります。<br/>
+お客様の問題が解決したら、後払いで代金を頂きます。</p>
+
+<p>  　</p>
+
+<h3>相談はこちら</h3>
+
+<p><a href="mailto:mt4-school@go-with.net">mt4-school@go-with.net</a><br/>
+Subject: 助けて所長！　とメールをお送り下さい。</p>
+
+<p>  　</p>
+
+<blockquote><p><strong>所長日記</strong><br/>
+週末は、遠く離れた山形に住む家族に会いに行ってきました。<br/>
+娘はもうすぐ二歳。父が東京に戻るのを複雑な顔で見ていました。新幹線で書くこの記事は、涙で滲んでいます。</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MT4におけるif分岐処理]]></title>
+    <link href="http://mt4-school.github.io/blog/2013/07/27/various-process/"/>
+    <updated>2013-07-27T23:13:00+09:00</updated>
+    <id>http://mt4-school.github.io/blog/2013/07/27/various-process</id>
+    <content type="html"><![CDATA[<h1>分岐処理(if, else)</h1>
+
+<p>EAをうまくプログラムするには、条件分岐というものが必ず必要となるでしょう。
+例えば、以下のような条件分岐が考えられます。</p>
+
+<ul>
+<li>例：USDJPYにおいて、Askが100円を超えたら、買いポジションを持つ。</li>
+<li>例：持ったポジションの総ロットサイズが10万通貨を超えたら、新規ポジションは持たない。</li>
+<li>例：５分間の高値と安値の差が30pips以上開いていたら、両建てでポジションを持つ。</li>
+</ul>
+
+
+<p>  <strong>⇒if文というものを使うと条件分岐を実現することができます。</strong></p>
+
+<p>　</p>
+
+<h3>if文の書き方の例を何種類か</h3>
+
+<p>例えば、現在のチャートの通貨ペアがUSDJPYであった場合のif文の書き方の例を次に示します。
+なお、例中で出現する「Symbol()」は、チャートの通貨ペアを返す（教えてくれる）Metatrader4の標準関数です。
+（標準関数＝Metatrader4自体が提供してくれる、便利な関数のこと。標準関数以外の機能が必要になったら、自分で作らなければなりません。）</p>
+
+<ul>
+<li>簡単な条件分岐（XXの場合）<br/>
+ifを使うと、「XXな場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>簡単な条件分岐（XXではないの場合）<br/>
+if文の評価式(カッコ内に書く式)で、!=を使うと、「XXではない場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() != "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYではない場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYではありません。");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>簡単な条件分岐（XX以外の場合）<br/>
+elseを使うと、「XX以外の場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else {
+</span><span class='line'>  // そうではない場合
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYではありません。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>複数の条件分岐 その1<br/>
+else ifを使うと、「XXではないけど、YYだった場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else if ( Symbol() == "EURJPY"){
+</span><span class='line'>  // このチャートの通貨ペアがEURJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはEURJPYです。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>複数の条件分岐 その2<br/>
+else ifの後にも、elseを追加することができます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" ) {
+</span><span class='line'>  // このチャートの通貨ペアがUSDJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else if ( Symbol() == "EURJPY"){
+</span><span class='line'>  // このチャートの通貨ペアがEURJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("このチャートの通貨ペアはEURJPYです。");
+</span><span class='line'>
+</span><span class='line'>} else {
+</span><span class='line'>  // そうではない場合
+</span><span class='line'>  Comment("このチャートの通貨ペアはUSDJPYでもEURJPYでもありません。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>and(かつ)とor(または）を使った条件分岐 その1 <br/>
+&amp;&amp;を使うと、「XXかつYYだった場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" && Bid &lt; 76.00) {
+</span><span class='line'>  //  チャートの通貨ペアがUSDJPY かつ Bidが76円未満だった場合、コメント表示する
+</span><span class='line'>  Comment("すごく円高です！");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>and(かつ)とor(または）を使った条件分岐 その2<br/>
+||を使うと、「XXか、またはYYだった場合」を表現できます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if ( Symbol() == "USDJPY" || Symbol() == "EURJPY") {
+</span><span class='line'>  //  チャートの通貨ペアがUSDJPYか、またはEURJPYだった場合、コメント表示する
+</span><span class='line'>  Comment("現在の通貨ペアは、USDJPYか、またはEURJPYです。");
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<ul>
+<li>条件分岐の中の条件分岐<br/>
+if文のブロックの中でも、if文を使うことができます。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//  チャートの通貨ペアがUSDJPYだった場合
+</span><span class='line'>if ( Symbol() == "USDJPY") {  
+</span><span class='line'>  if ( Bid &lt; 76.00) {
+</span><span class='line'>    //  Bidが76円未満だった場合、コメント表示する
+</span><span class='line'>    Comment("すごく円高です！");
+</span><span class='line'>  
+</span><span class='line'>  }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<blockquote><p><strong>所長の一言</strong></p>
+
+<p>たくさんのif文を書き連ねてコードを書くと、プロっぽくてかっこ良く思える人もいるかもしれませんが、
+業界の人はなるべくif文をたくさん使わない(if文の中にif文を書かない)よう、工夫してコードを書く人が多いです。</p>
+
+<p>コードの品質を高めるための検査指標として、プログラムの「複雑度」というものがあります。
+if文を増やすと、「複雑度」が高まり、知らず知らずのうちにプログラムミスが増えるのがその理由です。</p>
+
+<p>複雑な売買ロジックであったとしても、なるべく複雑度が低く、可読性が高い（コードをひと目見て、簡単に理解できる）状態になることが望ましいです。</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MT4インストールからEAを作成するまでの流れ]]></title>
@@ -192,6 +469,12 @@ MetaEditorは、EAやインジケータ等の元となるソースコード（�
 <img src="http://mt4-school.github.io/images/2013-07-26/Screen%20Shot%200025-07-27%20at%2012.06.24%20AM.png" alt="" /></p>
 
 <p>以上です。</p>
+
+<p>　</p>
+
+<blockquote><p><strong>所長日記</strong></p>
+
+<p>所長はこの記事を書くのに3時間かかりました。</p></blockquote>
 ]]></content>
   </entry>
   
@@ -276,6 +559,12 @@ MetaEditorは、EAやインジケータ等の元となるソースコード（�
 <li>char：リテラル型。私はここ３年位、使ったことないです。</li>
 </ul>
 
+
+<p>　</p>
+
+<blockquote><p><strong>所長日記</strong></p>
+
+<p>所長はあまり炭水化物を食べないように心がけており、白いご飯の代わりに野菜の千切りを食べたりします。</p></blockquote>
 ]]></content>
   </entry>
   
@@ -375,7 +664,11 @@ MetaEditorは、EAやインジケータ等の元となるソースコード（�
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
+<p>　</p>
 
+<blockquote><p><strong>所長日記</strong></p>
+
+<p>所長もそろそろ３０代半ばなので、食べるものに気をつけています。</p></blockquote>
 ]]></content>
   </entry>
   
