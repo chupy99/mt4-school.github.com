@@ -77,3 +77,10 @@ double getWholeProfitLoss(double price, int orderType) {
 }
 ```
 
+
+
+　
+> __所長日記__
+> 
+> 所長もそろそろ３０代半ばなので、食べるものに気をつけています。
+> 
