@@ -4,7 +4,7 @@
   <title><![CDATA[Metatrader教習所]]></title>
   <link href="http://mt4-school.github.io/atom.xml" rel="self"/>
   <link href="http://mt4-school.github.io/"/>
-  <updated>2013-07-29T00:07:07+09:00</updated>
+  <updated>2013-07-29T06:56:07+09:00</updated>
   <id>http://mt4-school.github.io/</id>
   <author>
     <name><![CDATA[MT4-School]]></name>
@@ -12,50 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[所長によるプログラムサポートサービス]]></title>
-    <link href="http://mt4-school.github.io/blog/2013/07/28/mt4-source-review/"/>
-    <updated>2013-07-28T21:38:00+09:00</updated>
-    <id>http://mt4-school.github.io/blog/2013/07/28/mt4-source-review</id>
-    <content type="html"><![CDATA[<p>Metatrader4のEAやインジケータを作成していて、行き詰まってしまうことがよくあると思います。
-そんな時は所長によるサポートサービスを御利用下さい。</p>
-
-<h3>所長サポートの例</h3>
-
-<blockquote><ul>
-<li>MT4でEAを作りたいが、どこから手をつけたら良いかわからない。</li>
-<li>MT4でEAを作ったけど、なぜかうまく動かない。</li>
-<li>MT4とFXCMのMarketScopeを繋いで、2社間のデータのやり取りをしたいが、どうやったら良いかわからない。
-
-<ul>
-<li>などなど</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-
-<p>  　</p>
-
-<h3>所長サポートの金額</h3>
-
-<p>どこまで流行るかわからないので、とりあえず <code>3500円/1問題解決</code> でやります。<br/>
-お客様の問題が解決したら、後払いで代金を頂きます。</p>
-
-<p>  　</p>
-
-<h3>相談はこちら</h3>
-
-<p><a href="mailto:mt4-school@go-with.net">mt4-school@go-with.net</a><br/>
-Subject: 助けて所長！　とメールをお送り下さい。</p>
-
-<p>  　</p>
-
-<blockquote><p><strong>所長日記</strong><br/>
-週末は、遠く離れた山形に住む家族に会いに行ってきました。<br/>
-娘はもうすぐ二歳。父が東京に戻るのを複雑な顔で見ていました。新幹線で書くこの記事は、涙で滲んでいます。</p></blockquote>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[MT4におけるif分岐処理]]></title>
