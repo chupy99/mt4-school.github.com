@@ -1,0 +1,485 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>繰り返し処理(for文編) - Metatrader教習所</title>
+	<meta name="author" content="MT4-School">
+
+	
+	<meta name="description" content="同じような事を繰り返し実行したい時に、forやwhileというものが役立ちます。
+これらは、ある条件がくるまでずっと処理の繰り返しをするものです。 　 どんな時に繰り返し処理が必要になる？ MT4では、例えば次のような場合この繰り返し処理を使います。 現在保有する全ポジションを、 &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Metatrader教習所" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Metatrader教習所</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:mt4-school.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:mt4-school.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">繰り返し処理(for文編)</h2>
+	<div class="entry-content"><p>同じような事を繰り返し実行したい時に、forやwhileというものが役立ちます。<br/>
+これらは、ある条件がくるまでずっと処理の繰り返しをするものです。</p>
+
+<p>  　</p>
+
+<h3>どんな時に繰り返し処理が必要になる？</h3>
+
+<p>MT4では、例えば次のような場合この繰り返し処理を使います。</p>
+
+<blockquote><ul>
+<li>現在保有する全ポジションを、繰り返し処理で全てクローズする場合</li>
+<li>現在の足から過去１０本の足のうち、2番に安い足がどれかを探す</li>
+<li>一つのEAで、USDJPY, EURUSD, EURJPY等のBidをPrintする。
+
+<ul>
+<li>Print：Expertログに情報を出力（表示）することができるMT4の関数。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+<p>・・・などなど</p>
+
+<p>まあ、あまり深くは考えずに、必要だと思った時に繰り返し処理を使って見てください。</p>
+
+<p>  　</p>
+
+<h3>forの使い方</h3>
+
+<p>forは次のように使います。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>for (int i=開始値; i&lt; 終了値; 増分) {
+</span><span class='line'>    // 繰り返し実行したい処理をここに書く
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　</p>
+
+<p>このままだとわかりにくいので、具体例を挙げます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>//|                                                   loop_test1.mq4 |
+</span><span class='line'>//|                                                       MT4-school |
+</span><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>#property copyright "MT4-school"
+</span><span class='line'>#property link      ""
+</span><span class='line'>
+</span><span class='line'>int start() {
+</span><span class='line'>    for (int i=0; i&lt;10; i++) {
+</span><span class='line'>        Print(i + "回ループしました！");
+</span><span class='line'>    }
+</span><span class='line'>    return(0);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　<br/>
+ここでのfor文はどういう意味かと申しますと、次のような意味になります。</p>
+
+<table>
+<thead>
+<tr>
+<th>No    </th>
+<th> 内容       　</th>
+<th> 意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1項目  </td>
+<td> int i = 0 　</td>
+<td>　iという変数をカウンターとして、ループする。</td>
+</tr>
+<tr>
+<td>2項目  </td>
+<td> i &lt; 10    　</td>
+<td>　iが10未満の間、繰り返し処理する。</td>
+</tr>
+<tr>
+<td>3項目  </td>
+<td> i++       　</td>
+<td>　1回ループする毎に、iの値を一つ増やす。</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>　</p>
+
+<p>これを実行すると、Expertログにはこんなふうに表示されます。</p>
+
+<table>
+<thead>
+<tr>
+<th>   </th>
+<th> Expertログ    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>　 </td>
+<td> 0回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 1回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 2回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 3回繰り返しました！</td>
+</tr>
+<tr>
+<td> 　</td>
+<td> 4回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 5回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 6回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 7回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 8回繰り返しました！</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> 9回繰り返しました！</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>  　</p>
+
+<p>現在保有するすべてのポジションをクローズするなら、こんな感じでしょうか。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>//|                                                auto_closeAll.mq4 |
+</span><span class='line'>//|                                                       MT4-school |
+</span><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>#property copyright "MT4-school"
+</span><span class='line'>#property link      ""
+</span><span class='line'>
+</span><span class='line'>// スリッページ(3位に設定しておきましょうかね)
+</span><span class='line'>int slippage = 3;
+</span><span class='line'>
+</span><span class='line'>int start() {
+</span><span class='line'>
+</span><span class='line'>    // 持ってるポジションの数だけ繰り返す
+</span><span class='line'>    for (int i=OrdersTotal()-1; i&gt;=0; i--) {
+</span><span class='line'>
+</span><span class='line'>        // 全ポジションの中から、一つのポジションに着目する
+</span><span class='line'>        OrderSelect(i, SELECT_BY_POS);
+</span><span class='line'>                
+</span><span class='line'>        // 買いエントリーで建てたポジションならBidで売る        
+</span><span class='line'>        if  OrderType() == OP_BUY) {
+</span><span class='line'>            OrderClose(OrderTicket(), OrderLots(), Bid, slippage, Red);
+</span><span class='line'>
+</span><span class='line'>        // 売りエントリーで建てたポジションならAskで買う
+</span><span class='line'>        } else if (OrderType() == OP_SELL) {
+</span><span class='line'>            OrderClose(OrderTicket(), OrderLots(), Ask, slippage, Green);
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    return(0);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  　</p>
+
+<p>こちらの例では、例えば３個のポジションを持っていたら、i=2、1,0と順繰りに減っていくように処理しています。
+理由は、<code>OrderSelect(i, SELECT_BY_POS)</code>する時のことを考慮したためです。</p>
+
+<p><code>for (i=0; i&lt;OrdersTotal(); i++) {</code>を使った場合、繰り返し処理は次のように進みます。</p>
+
+<table>
+<thead>
+<tr>
+<th>i </th>
+<th> 残りポジション数 </th>
+<th> OrderSelect(i, SELECT_BY_POS)の意味合い</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 </td>
+<td> 3             </td>
+<td> OrderSlect(0, ..＝1番目のポジションに注目せよ　</td>
+</tr>
+<tr>
+<td>1 </td>
+<td> 2             </td>
+<td> OrderSlect(1, ..＝2番目のポジションに注目せよ　</td>
+</tr>
+<tr>
+<td>2 </td>
+<td> 1             </td>
+<td> OrderSlect(2, ..＝3番目のポジションに注目せよ　</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>　
+上述のように、ポジションを扱う場合、for文のカウンタiを0,1,2と増加させると、</p>
+
+<ul>
+<li><p>1週目のループではi=0。この時「OrderSelect(0, ..」となる。</p>
+
+<ul>
+<li>⇒ 残ポジションも3つあるので、1番めのポジションに注目できる。OK</li>
+</ul>
+</li>
+<li><p>2週目のループではi=1。この時「OrderSelect(1, ..」となる。</p>
+
+<ul>
+<li>⇒ 残ポジションも2つあるので、2番めのポジションに注目できる。OK</li>
+</ul>
+</li>
+<li><p>3週目のループではi=2。この時「OrderSelect(2, ..」となる。</p>
+
+<ul>
+<li>⇒ 残ポジションは1つなので、3番めのポジションに注目できない。NG!!</li>
+</ul>
+</li>
+</ul>
+
+
+<p>i=2になった時の残ポジション数がもう1しか無いにも関わらず、「3番めのポジションに注目せよ」となり、不整合が起こるのです。
+これを防ぐため、i++ではなく　i&mdash;を使用しているのです。</p>
+
+<p>　<br/>
+<code>for (int i=OrdersTotal()-1; i&gt;=0; i--) {</code>と、ループの順番を工夫した結果、こんなふうになります。</p>
+
+<table>
+<thead>
+<tr>
+<th>i </th>
+<th> 残りポジション数 </th>
+<th> OrderSelect(i, SELECT_BY_POS)の意味合い</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 </td>
+<td> 3             </td>
+<td> OrderSlect(2, ..＝3番目のポジションに注目せよ　</td>
+</tr>
+<tr>
+<td>1 </td>
+<td> 2             </td>
+<td> OrderSlect(1, ..＝2番目のポジションに注目せよ　</td>
+</tr>
+<tr>
+<td>0 </td>
+<td> 1             </td>
+<td> OrderSlect(0, ..＝1番目のポジションに注目せよ　</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>つまり、</p>
+
+<ul>
+<li><p>1週目のループではi=2。この時「OrderSelect(2, ..」となる。</p>
+
+<ul>
+<li>⇒ 残ポジションも3つあるので、3番めのポジションに注目できる。OK</li>
+</ul>
+</li>
+<li><p>2週目のループではi=1。この時「OrderSelect(1, ..」となる。</p>
+
+<ul>
+<li>⇒ 残ポジションも2つあるので、2番めのポジションに注目できる。OK</li>
+</ul>
+</li>
+<li><p>3週目のループではi=0。この時「OrderSelect(0, ..」となる。</p>
+
+<ul>
+<li>⇒ 残ポジションも1つあるので、1番めのポジションに注目できる。OK</li>
+</ul>
+</li>
+</ul>
+
+
+<p>少し難しかったかもしれませんが、こういった考察を都度自分で考える必要はありません。
+覚えた事をどこかに書き留めておいて、必要な時にコピペしましょう。
+楽に事を済ませられるのが一番です！</p>
+
+<blockquote><p><strong>所長日記</strong></p>
+
+<p>所長は炭酸が好き。妻に炭酸水メーカーを買ってもらいました。</p></blockquote>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-01T21:07:00+09:00" pubdate data-updated="true">Aug 1<span>st</span>, 2013</time></div>
+	<div class="tags">
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    MT4-School
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+
+
+</body>
+</html>
