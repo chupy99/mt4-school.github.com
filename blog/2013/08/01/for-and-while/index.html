@@ -162,7 +162,7 @@
 <tr>
 <td>1項目  </td>
 <td> int i = 0 　</td>
-<td>　iという変数をカウンターとして、ループする。</td>
+<td>　iという変数をカウンターとして、ループする。iの初期値は0とする。</td>
 </tr>
 <tr>
 <td>2項目  </td>
@@ -235,6 +235,178 @@
 
 
 <p>  　</p>
+
+<p>さらに具体例を挙げます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>//|                                                   loop_test2.mq4 |
+</span><span class='line'>//|                                                       MT4-school |
+</span><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>#property copyright "MT4-school"
+</span><span class='line'>#property link      ""
+</span><span class='line'>
+</span><span class='line'>int start() {
+</span><span class='line'>    for (int i=9; i&gt;=0; i--) {
+</span><span class='line'>        Print("ループしました！ i=" + i);
+</span><span class='line'>    }
+</span><span class='line'>    return(0);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>　<br/>
+ここでのfor文はどういう意味かと申しますと、次のような意味になります。</p>
+
+<table>
+<thead>
+<tr>
+<th>No    </th>
+<th> 内容       　</th>
+<th> 意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1項目  </td>
+<td> int i = 9 　</td>
+<td>　iという変数をカウンターとして、ループする。iの初期値は9とする。</td>
+</tr>
+<tr>
+<td>2項目  </td>
+<td> i >= 0    　</td>
+<td>　iが0以上の間、繰り返し処理する。</td>
+</tr>
+<tr>
+<td>3項目  </td>
+<td> i&mdash;       　</td>
+<td>　1回ループする毎に、iの値を一つ減らす。</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>　</p>
+
+<p>これを実行すると、Expertログにはこんなふうに表示されます。</p>
+
+<table>
+<thead>
+<tr>
+<th>   </th>
+<th> Expertログ    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=9 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=8 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=7 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=6 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=5 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=4 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=3 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=2 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=1 　</td>
+</tr>
+<tr>
+<td>　 </td>
+<td> ループしました！ i=0 　</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>  　</p>
+
+<p>ある決まった通貨ペアのBid値を取得したければ(というかExpertログに表示したければ)次のような感じでしょうか。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>//|                                                   for_sample.mq4 |
+</span><span class='line'>//|                                                       MT4-school |
+</span><span class='line'>//|                                                                  |
+</span><span class='line'>//+------------------------------------------------------------------+
+</span><span class='line'>#property copyright "MT4-school"
+</span><span class='line'>#property link      ""
+</span><span class='line'>
+</span><span class='line'>// PAIRS[0]="USDJPY", PAIRS[1]="EURUSD", PAIRS[2]="EURJPY"
+</span><span class='line'>string PAIRS[]={"USDJPY","EURUSD","EURJPY"};
+</span><span class='line'>int start() {
+</span><span class='line'>    for (int i=0; i&lt;3; i++) {
+</span><span class='line'>        double bidPrice = MarketInfo(PAIRS[0], MODE_BID);
+</span><span class='line'>        Print(PAIRS[i] + " , Bid=" + bidPrice);
+</span><span class='line'>    }
+</span><span class='line'>    return(0);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>簡単な解説</p>
+
+<ul>
+<li>initメソッドとdeinitメソッドは、使用しない場合は無くても大丈夫です。</li>
+<li>startメソッドの中では、PAIRS配列の大きさ(要素[0]〜[2]、計3要素）の数だけ、for文でループさせます。</li>
+<li><p>MarketInfoでそれぞれの通貨ペアのBid値を取得し、Printメソッドで通貨ペアの名前とそのBid値をExpertログに出力します。
+&mdash; ※string PAIRSをstartメソッドの外に定義しているのは、startメソッドが何回呼ばれようと、使う通貨ペアはかならずUSDJPY, EURUSD, EURJPYだからです。<br/>
+&mdash; ※startメソッドはチャート上のティックが更新されるたびに何度も何度も呼び出されます。startの外は、EAが起動されたタイミングで一度だけ呼び出されます。</p>
+
+<p>　</p></li>
+</ul>
+
 
 <p>現在保有するすべてのポジションをクローズするなら、こんな感じでしょうか。</p>
 
