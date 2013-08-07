@@ -1,0 +1,143 @@
+---
+layout: post
+title: "繰り返し処理(while編)"
+date: 2013-08-04 21:47
+comments: true
+categories: 
+---
+
+繰り返し処理の実現方式として、for文の他にwhile文を用いる方法もあります。
+
+  　
+### whileの使い方
+
+whileは次のように使います。
+
+```
+while (評価式) {
+    // 繰り返し実行したい処理をここに書く
+}
+```
+はい、よくわかりませんね。
+　  
+
+このままだとわかりにくいので、具体例を挙げます。
+```
+//+------------------------------------------------------------------+
+//|                                                while_sample1.mq4 |
+//|                                                       MT4-school |
+//|                                                                  |
+//+------------------------------------------------------------------+
+#property copyright "MT4-school"
+#property link      ""
+
+int start() {
+    int i=0;
+    while(i < 10) {
+        Print("whileを使った繰り返し処理　i=" + i);
+        i++; // iに、現在のiに1を足した値を代入する。i=0の時だったら、この行を通過するとi=1になる。
+    }
+    return(0);
+}
+
+```
+
+　  
+ここでのwhile文はどういう意味かと申しますと、次のような意味になります。
+
+No    | 内容       　| 意味
+------|-------------|-----------------------------------
+1項目  | i < 10    　|　iが10未満の間、繰り返し処理する。
+
+（for文と比べてややシンプルに見えますね）　
+
+これを実行すると、Expertログにはこんなふうに表示されます。
+
+   | Expertログ    
+---|-----------------
+　 | whileを使った繰り返し処理　i=0 　
+　 | whileを使った繰り返し処理　i=1 　
+　 | whileを使った繰り返し処理　i=2 　
+　 | whileを使った繰り返し処理　i=3 　
+ 　| whileを使った繰り返し処理　i=4 　
+　 | whileを使った繰り返し処理　i=5 　
+　 | whileを使った繰り返し処理　i=6 　
+　 | whileを使った繰り返し処理　i=7 　
+　 | whileを使った繰り返し処理　i=8 　
+　 | whileを使った繰り返し処理　i=9 　
+  
+  　
+
+次は少し実用的な使い方です。次のようにすると、現在持っているすべてのポジションを、全て成功するまでクローズし続けます。
+```
+//+------------------------------------------------------------------+
+//|                                                while_sample2.mq4 |
+//|                                                       MT4-school |
+//|                                                                  |
+//+------------------------------------------------------------------+
+#property copyright "MT4-school"
+#property link      ""
+
+// スリッページ(3位に設定しておきましょうかね)
+int slippage = 3;
+
+int start() {
+
+    // 持ってるポジションの数だけ繰り返す
+    for (int i=OrdersTotal()-1; i>=0; i--) {
+
+        // 全ポジションの中から、一つのポジションに着目する
+        OrderSelect(i, SELECT_BY_POS);
+                
+        bool isCloseSuccess = false;
+        
+        // isCloseSuccessがfalseの間はずっと、OrderClose処理をし続ける。
+        while (isCloseSuccess == false) { 
+            // 買いエントリーで建てたポジションならBidで売る        
+            if  OrderType() == OP_BUY) {
+            
+                // OrderCloseに成功すると、isCloseSuccessにtrueがセットされる
+                // OrderCloseに失敗すると、isCloseSuccessにfalseがセットされる
+                isCloseSuccess = OrderClose(OrderTicket(), OrderLots(), Bid, slippage, Red);
+
+            // 売りエントリーで建てたポジションならAskで買う
+            } else if (OrderType() == OP_SELL) {
+
+                // OrderCloseに成功すると、isCloseSuccessにtrueがセットされる
+                // OrderCloseに失敗すると、isCloseSuccessにfalseがセットされる
+                isCloseSuccess = OrderClose(OrderTicket(), OrderLots(), Ask, slippage, Green);
+            }
+            
+            // OrderCloseに失敗した場合
+            if (isCloseSuccess == false) {
+                // Expertログにエラーコードを表示
+                Print("ErrorCode=" + GetLastError());
+            
+            }
+        }
+    }
+
+    return(0);
+}
+
+```
+  
+  
+簡単な解説
+
+`while (isCloseSuccess == false) { `の効果により、ポジションを確実にクローズするまで、クローズ処理をし続けます。
+クローズできないシーンの例としては、値動きが激しく価格の再提示が発生した場合や、通信エラーが発生した場合など、
+いろいろ考えられますね。
+
+ここでは例を簡単にするためのコードを挙げていますので、実際に全ポジションクローズを安全に実施しようとするのであれば、もう少し複雑な処理が必要になることを補足しておきます。
+（例えば、とある理由で絶対にクローズできないポジションを持つ場合などは、クローズ処理は永久に成功せず、この例で挙げたロジックはwhile処理を抜けることができず、無限ループになり、MT4が無応答になったりPCがフリーズする場合が考えられます。）
+
+> __所長日記__
+> 
+> 所長はさっき、娘と売買・・いやバイバイしてきました。父は東京に戻ります。
+> 来週で2歳になる娘でも、父がまたいなくなることをわかっているようで、
+> ずっとうつむいていました。切ない気分になりました。
+> 来週また行ぐがらな。
+> 
+
+
